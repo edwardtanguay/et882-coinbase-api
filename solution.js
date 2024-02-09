@@ -20,8 +20,12 @@ const outputElem = document.querySelector('#output');
 const baseUrl = `https://api.coinbase.com/v2/prices`;
 
 conversionFormElem.addEventListener('submit', (event) => {
-	event.preventDefault();	
-	const url = `${baseUrl}/${convertFromElem.value}-${convertToElem.value}/spot`;
+	event.preventDefault();
+
+	const convertFrom = convertFromElem.value;
+	const convertTo = convertToElem.value;
+	const convertCount = Number(convertCountElem.value);
+	const url = `${baseUrl}/${convertFrom}-${convertTo}/spot`;
 	fetch(url).then((response) => {
 		// console.log(response);
 		response.json().then((payload) => {
@@ -30,7 +34,11 @@ conversionFormElem.addEventListener('submit', (event) => {
 			// const amount = Number(strAmount);
 			const amount = parseFloat(strAmount);
 			// const cur2Amount = cur1Amount * amount;
-			console.log(amount);
+			const output = convertCount * amount;
+			// console.log(111, convertCount);
+			// console.log(222,amount);
+			// console.log(333, output);
+			outputElem.value = output;
 		});
-	})
+	});
 });
