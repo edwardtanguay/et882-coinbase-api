@@ -22,15 +22,15 @@ const baseUrl = `https://api.coinbase.com/v2/prices`;
 conversionFormElem.addEventListener('submit', (event) => {
 	event.preventDefault();	
 	const url = `${baseUrl}/${convertFromElem.value}-${convertToElem.value}/spot`;
-	console.log(111, url);
-	// fetch(url).then((response) => {
-	// 	// console.log(response);
-	// 	response.json().then((payload) => {
-	// 		const strAmount = payload.data.amount;
-	// 		// const amount = Number(strAmount);
-	// 		const amount = parseFloat(strAmount);
-	// 		// const cur2Amount = cur1Amount * amount;
-	// 		console.log(amount);
-	// 	});
-	// })
+	fetch(url).then((response) => {
+		// console.log(response);
+		response.json().then((payload) => {
+			const strAmount = payload.data.amount;
+			console.log(payload);
+			// const amount = Number(strAmount);
+			const amount = parseFloat(strAmount);
+			// const cur2Amount = cur1Amount * amount;
+			console.log(amount);
+		});
+	})
 });
