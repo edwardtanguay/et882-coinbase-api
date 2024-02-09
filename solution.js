@@ -1,3 +1,4 @@
+const conversionFormElem = document.querySelector('#conversion-form');
 const convertFromElem = document.querySelector('#convert-from');
 const convertCountElem = document.querySelector('#convert-count');
 const convertToElem = document.querySelector('#convert-to');
@@ -10,18 +11,18 @@ const outputElem = document.querySelector('#output');
 // console.log(333, convertToElem.value);
 // convertBtnSubmitElem.style.display = 'none';
 // console.log(444, outputElem.value);
+// conversionFormElem.style.display = 'none';
 
 // const cur1Amount = .03;
 // const cur1 = 'BTC';
 // const cur2 = 'USD';
 
-const baseUrl = `https://api.coinbase.com/v2/prices/`;
+const baseUrl = `https://api.coinbase.com/v2/prices`;
 
-convertBtnSubmitElem.addEventListener('click', () => {
-	
+conversionFormElem.addEventListener('submit', (event) => {
+	event.preventDefault();	
 	const url = `${baseUrl}/${convertFromElem.value}-${convertToElem.value}/spot`;
-	console.log('ksjdfksjdfksdjf');
-	// console.log(111, url);
+	console.log(111, url);
 	// fetch(url).then((response) => {
 	// 	// console.log(response);
 	// 	response.json().then((payload) => {
