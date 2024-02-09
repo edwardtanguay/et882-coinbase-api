@@ -1,3 +1,9 @@
+const convertFromElem = document.querySelector('#convert-from');
+const convertCountElem = document.querySelector('#convert-count');
+
+
+console.log(111, convertFromElem.value);
+console.log(222, convertCountElem.value);
 
 const cur1Amount = .03;
 const cur1 = 'BTC';
@@ -12,6 +18,5 @@ fetch(url).then((response) => {
 		// const amount = Number(strAmount);
 		const amount = parseFloat(strAmount);
 		const cur2Amount = cur1Amount * amount;
-		console.log(cur2Amount);
 	});
 })
